@@ -77,19 +77,19 @@
  * |  `   |MW_UP |M_BTN1| MS_U |M_BTN2|      |                    |   6  |   7  |   8  |   9  |   0  |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |  F1  |MW_DN | MS_L | MS_D | MS_R |      |-------.    ,-------|LEFT  | DOWN |  UP  |RIGHT |      |      |
- * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |  F7  |  F8  |  F9  | F10  | F11  | F12  |-------|    |-------|  +   |  -   |  =   |  [   |  ]   |  \   |
+ * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
+ * |  F7  |  F8  | VOL+ | VOL- | PREV | NEXT |-------|    |-------|  +   |  -   |  =   |  [   |  ]   |  \   |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   |      |      |      | /       /       \      \ |      |      |      |
+ *                   |      |      |      | / PLAY  /       \      \ |      |      |      |
  *                   |      |      |      |/       /         \      \|      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
             bindings = <
-&trans    &trans         &trans    &trans            &trans          &trans                                &trans      &trans    &trans    &trans    &trans    &trans
-&kp GRAVE &mmv SCRL_UP   &mkp MB1  &mmv MOVE_UP      &mkp MB2        &trans                                &kp N6      &kp N7    &kp N8    &kp N9    &kp N0    &trans
-&kp F1    &mmv SCRL_DOWN &kp F3    &mmv MOVE_LEFT    &mmv MOVE_DOWN  &mmv MOVE_RIGHT                       &kp LEFT    &kp DOWN  &kp UP    &kp RIGHT &trans    &trans
-&kp F7    &kp F8         &kp F9    &kp F10           &kp F11         &kp F12         &trans    &trans      &kp KP_PLUS &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLH
-                         &trans    &trans            &trans          &trans          &trans    &trans      &trans      &trans
+&trans    &trans         &trans        &trans            &trans     &trans                                &trans      &trans    &trans    &trans    &trans    &trans
+&kp GRAVE &mmv SCRL_UP   &mkp MB1      &mmv MOVE_UP      &mkp MB2   &trans                                &kp N6      &kp N7    &kp N8    &kp N9    &kp N0    &trans
+&kp F1    &mmv SCRL_DOWN &mmv MOVE_LEFT &mmv MOVE_DOWN   &mmv MOVE_RIGHT &trans                          &kp LEFT    &kp DOWN  &kp UP    &kp RIGHT &trans    &trans
+&kp F7    &kp F8         &kp K_VOL_UP  &kp K_VOL_DN      &kp K_PREV &kp K_NEXT &kp K_MUTE &trans         &kp KP_PLUS &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLH
+                         &trans        &trans            &trans     &kp K_PP   &trans     &trans         &trans      &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
