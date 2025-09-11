@@ -15,30 +15,42 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 12    // default: 10
 
 / {
+   behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-/* DEFAULT LAYER
+/* DEFAULT LAYER WITH HOME ROW MODS
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * | ESC  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  `   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | TAB  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  -   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | CTRL |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |  ;   |  '   |
+ * | CTRL | A/GUI| S/ALT| D/SFT| F/CTL|   G  |-------.    ,-------|   H  |J/CTL |K/SFT |L/ALT |;/GUI |  '   |
  * |------+------+------+------+------+------|   [   |    |   ]   |------+------+------+------+------+------|
  * | SHIFT|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |  ,   |  .   |  /   |SHIFT |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | ALT  | GUI  |LOWER | /SPACE  /       \ENTER \ |RAISE |BSPC  | GUI  |
+ *                   | ALT  | GUI  |LOWER | /SPACE  /       \ENTER \ |RAISE |BSPC  | ALT  |
  *                   |      |      |      |/       /         \      \|      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
             bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp GRAVE
-&kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                      &kp Y  &kp U    &kp I     &kp O   &kp P    &kp MINUS
-&kp LSHFT &kp A  &kp S  &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L   &kp SEMI &kp SQT
-&kp LCTRL &kp Z  &kp X  &kp C    &kp V    &kp B  &kp LBKT   &kp RBKT &kp N  &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp LALT &kp LGUI &mo 1  &kp SPACE  &kp RET  &mo 2  &kp BSPC &kp RGUI
+&kp ESC   &kp N1          &kp N2          &kp N3           &kp N4           &kp N5                     &kp N6 &kp N7           &kp N8           &kp N9          &kp N0           &kp GRAVE
+&kp TAB   &kp Q           &kp W           &kp E            &kp R            &kp T                      &kp Y  &kp U            &kp I            &kp O           &kp P            &kp MINUS
+&kp LSHFT &hm LGUI A      &hm LALT S      &hm LSHFT D      &hm LCTRL F      &kp G                      &kp H  &kp J      &hm RSHFT K      &hm RALT L      &hm RGUI SEMI    &kp SQT
+&kp LCTRL &kp Z           &kp X           &kp C            &kp V            &kp B  &kp LBKT   &kp RBKT &kp N  &kp M            &kp COMMA        &kp DOT         &kp FSLH         &kp RSHFT
+                                          &kp LALT         &kp LGUI         &mo 1  &kp SPACE  &kp RET  &mo 2  &kp BSPC         &kp RALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
