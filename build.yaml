@@ -1,16 +1,9 @@
-# This file generates the GitHub Actions matrix.
-# Note: '//zmk' qualifier in board target picks the ZMK variant
-# (vs upstream Zephyr nice_nano). The 'artifact-name' override avoids
-# the '/' in board name breaking the artifact filename
-# (ZMK upstream issue #3300).
+# Pinned to ZMK v0.3.0 (pre-Zephyr-4.1). Uses old-style bare board names.
 ---
 include:
-  - board: nice_nano@1.0.0//zmk
+  - board: nice_nano
     shield: corne_left
-    artifact-name: corne_left
-  - board: nice_nano@1.0.0//zmk
+  - board: nice_nano
     shield: corne_right
-    artifact-name: corne_right
-  - board: nice_nano@1.0.0//zmk
+  - board: nice_nano
     shield: settings_reset
-    artifact-name: settings_reset
