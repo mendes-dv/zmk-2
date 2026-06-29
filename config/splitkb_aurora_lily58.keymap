@@ -17,16 +17,6 @@
 
 / {
    behaviors {
-         swap_gui_alt: swap_gui_alt_key {
-             compatible = "zmk,behavior-hold-tap";
-             label = "SWAP_GUI_ALT";
-             #binding-cells = <0>;
-             tapping-term-ms = <200>;
-             quick-tap-ms = <0>;
-             flavor = "hold-preferred";
-             bindings = <&kp>, <&kp>;
-         };
-
          hm: homerow_mods {
              compatible = "zmk,behavior-hold-tap";
              label = "HOMEROW_MODS";
